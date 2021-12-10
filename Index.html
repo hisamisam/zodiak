@@ -1,122 +1,134 @@
+script
+
+<!Doctype html>
 <html>
-	<head>
-		<title>Uts Aplikasi Zodiak</title>
-	</head>
-		<body>
-			<form method="POST">
-				<table border="1">
-					<tr>
-						<th><center>Aplikasi Zodiak</center></th>
-					</tr>
-					<tr>
-						<td>Nama :<input type="text" name="nama" size="35"></td>
-					</tr>
-					<tr>
-					<td>Tanggal :<input type="text" name="tanggal" size="2">Bulan :
-						<select name="bln" id="bln">
-							<option>-Pilih-</option>
-							<option value="januari">1</option>
-							<option value="februari">2</option>
-							<option value="maret">3</option>
-							<option value="april">4</option>
-							<option value="mei">5</option>
-							<option value="juni">6</option>
-							<option value="juli">7</option>
-							<option value="agustus">8</option>
-							<option value="september">9</option>
-							<option value="oktober">10</option>
-							<option value="november">11</option>
-							<option value="desember">12</option>
-						</select>
-							<input type="submit" name="submit" id="submit" value="Cari">
-							<input type="reset" name="reset" id="reset" value="Batal" ></td>
-					</tr>
-				
-				
-							
-<?php
-error_reporting(E_ALL ^ E_NOTICE);
-$nama = $_POST["nama"];
-$tanggal= $_POST["tanggal"];
-$zodiak = $_POST["zodiak"];
-$blnzodiak=$_POST['bln'];
+ <head>
+  <title>Program untuk mengetahui Zodiak dan Shio</title>
+  <script language="javascript">
 
-/*switch($_POST['bln'])
-	{
-		case "1" :
-			$bulan = "Januari";
-			break;
-		case "2" :
-			$bulan = "Februari";
-			break;
-		case "3" :
-			$bulan = "Maret";
-			break;
-		case "4" :
-			$bulan = "April";
-			break;
-		case "5" :
-			$bulan = "Mei";
-			break;
-		case "6" :
-			$bulan = "Juni";
-			break;
-		case "7" :
-			$bulan = "Juli";
-			break;
-		case "8" :
-			$bulan = "Agustus";
-			break;
-		case "9" :
-			$bulan = "September";
-			break;
-		case "10" :
-			$bulan = "Oktober";
-			break;
-		case "11" :
-			$bulan = "Nopember";
-			break;
-		default :
-			$bulan = "Desember";
-			break;
-			
-	}*/
-				if (($tanggal>=20 && $blnzodiak=="maret")||($tanggal<=19 && $blnzodiak=="april")){
-					$zodiak= "Aries";
-				}else if(($tanggal>20 && $blnzodiak=="april" )||($tanggal<20 && $blnzodiak=="mei")){
-					$zodiak = "Taurus";
-				}else if(($tanggal>21 && $blnzodiak=="mei" )||($tanggal<20 && $blnzodiak=="juni")){
-					$zodiak = "Gemini";
-				}else if(($tanggal>21 && $blnzodiak=="juni" )||($tanggal<22 && $blnzodiak=="juli")){
-					$zodiak = "Cancer";
-				}else if(($tanggal>23 && $blnzodiak=="juli")||($tanggal<23 && $blnzodiak=="agustus")){
-					$zodiak = "Leo";
-				}else if(($tanggal>23 && $blnzodiak=="agustus")||($tanggal<22 && $blnzodiak=="september")){
-					$zodiak = "Virgo";
-				}else if(($tanggal>23 && $blnzodiak=="september")||($tanggal<22 && $blnzodiak=="oktober")){
-					$zodiak = "Libra";
-				}else if(($tanggal>23 && $blnzodiak=="oktober")||($tanggal<21 && $blnzodiak=="november")){
-					$zodiak = "Scorpio";
-				}else if(($tanggal>22 && $blnzodiak=="november")||($tanggal<21 && $blnzodiak=="desember")){
-					$zodiak = "Sagitarius";
-				}else if(($tanggal>22 && $blnzodiak=="desember")||($tanggal<19 && $blnzodiak=="januari")){
-					$zodiak = "Capricorns";
-				}else if(($tanggal>20 && $blnzodiak=="januari")||($tanggal<18 && $blnzodiak=="februari")){
-					$zodiak = "Aquarius";
-				}else if(($tanggal>19 && $blnzodiak=="februari")||($tanggal<19 && $blnzodiak=="maret")){
-					$zodiak = "Pisces";
-			
-	}
-?>
+   function cek()
+   {
+   //variabel
+   var start = 1901,
+   birthyear = document.
+   zodiac.year.value,
+   date=document.zodiac.date.value,
+   month=document.zodiac.month.selectedIndex;
+//proses
+   with (document.zodiac.sign){
+/* if di bawah ini bergandengan dengan "atau|| "dikarenakan zodiak menggunakan bulan yang berbeda-beda
+jadi jika di baca bulan sama dengan 1 dan date lebih dari 20 atau bulan sama dengan 2 dan tanggal kurang dari 18 maka
+value yang muncul adalah aquarius
+*/
+   if (month == 1 && date >=20 || month == 2 && date <=18)  {value = "Aquarius";}
+   if (month == 1 && date > 31) {value = "tanggal tidak valid";}
+   if (month == 2 && date >=19 || month == 3 && date <=20) {value = "Pisces";}
+   if (month == 2 && date > 29) {value = "tanggal tidak valid";}
+   if (month == 3 && date >=21 || month == 4 && date <=19) {value = "Aries";}
+   if (month == 3 && date > 31) {value = "tanggal tidak valid";}
+   if (month == 4 && date >=20 || month == 5 && date <=20) {value = "Taurus";}
+   if (month == 4 && date > 30) {value = "tanggal tidak valid";}
+   if (month == 5 && date >=21 || month == 6 && date <=21) {value = "Gemini";}
+   if (month == 5 && date > 31) {value = "tanggal tidak valid";}
+   if (month == 6 && date >=22 || month == 7 && date <=22) {value = "Cancer";}
+   if (month == 6 && date > 30) {value = "tanggal tidak valid";}
+   if (month == 7 && date >=23 || month == 8 && date <=22) {value = "Leo";}
+   if (month == 7 && date > 31) {value = "tanggal tidak valid";}
+   if (month == 8 && date >=23 || month == 9 && date <=22) {value = "Virgo";}
+   if (month == 8 && date > 31) {value = "tanggal tidak valid";}
+   if (month == 9 && date >=23 || month == 10 && date <=22) {value = "Libra";}
+   if (month == 9 && date > 30) {value = "tanggal tidak valid";}
+   if (month == 10 && date >=23 || month == 11 && date <=21) {value = "Scorpio";}
+   if (month == 10 && date > 31) {value = "tanggal tidak valid";}
+   if (month == 11 && date >=22 || month == 12 && date <=21) {value = "Sagittarius";}
+   if (month == 11 && date > 30) {value = "tanggal tidak valid";}
+   if (month == 12 && date >=22 || month == 1 && date <=19) {value = "Capricorn";}
+   if (month == 12 && date > 31) {value = "tanggal tidak valid";}
+   }
+/* Untuk menentukan shio, caranya dengan mendapatkan sisa bagi tahun dengan 12 (karena shio akan berulang setiap 12 tahun sekali)
+sebenarnya, cara ini tidak terlalu akurat mengingat pergantian tahun dalam penanggalan Cina tidak tepat seperti pergantian tahun masehi
+*/
+   x = (start - birthyear) % 12
+   with (document.zodiac.csign){
 
-					<tr>
-						<?php echo "<td>Nama Anda : $nama</td>";?>
-					</tr>
-					<tr>
-						<?php echo "<td>Tanggal Anda : $tanggal $blnzodiak</td>";?>
-					</tr>
-						<?php echo "<td>Zodiak Anda : $zodiak</td>";?>
-				</table>
-			</form>
-		</body>
-</html>
+   if (x == 1 || x == -11) {value = "Tikus";}
+   if (x == 0) {value = "Kerbau";}
+   if (x == 11 || x == -1) {value = "Macan";}
+   if (x == 10 || x == -2) {value = "Kelinci";}
+   if (x == 9 || x == -3) {value = "Naga";}
+   if (x == 8 || x == -4) {value = "Ular";}
+   if (x == 7 || x == -5) {value = "Kuda";}
+   if (x == 6 || x == -6) {value = "Kambing";}
+   if (x == 5 || x == -7) {value = "Monyet";}
+   if (x == 4 || x == -8) {value = "Ayam";}
+   if (x == 3 || x == -9) {value = "Anjing";}
+   if (x == 2 || x == -10) {value = "Babi";}
+   }
+   }
+   </script>
+   </head>
+   <body>
+   <body bgcolor="pink">
+    <form name="zodiac">
+  <h1 align="center"><font color="orange" face="arial" >Cek Zodiak dan Shio</h1>
+                <table border="1" cellpadding="2" cellspacing="1" align="center" width="30%">
+                    <tr>
+      <div align="center">
+   <td><b><i>Nama</i></b></td>
+   <td><div align="left">
+   <input type="text" size="20" name="Nama" value="masukkan nama" onClick=value="">
+   </td></div>
+ 
+       <tr>
+        <td><b><i>Tahun Lahir</i></b></td>
+        <td><div align="left">
+        <input type="text" size="10" name="year" value="Input Tahun" onClick=value=""></div>
+        </td>
+       </tr>
+       <tr>
+<td><b><i>Bulan Lahir</i></b></td>
+        <td><div align="left">
+        <select name="month">
+        <option value="x">Pilih Bulan Lahir</option>
+        <option value="1">Januari</option>
+        <option value="2">Februari</option>
+        <option value="3">Maret</option>
+  <option value="4">April</option>
+        <option value="5">Mei</option>
+        <option value="6">Juni</option>
+        <option value="7">Juli</option>
+        <option value="8">Agustus</option>
+        <option value="9">September</option>
+  <option value="10">Oktober</option>
+        <option value="11">November</option>
+        <option value="12">Desember</option></select>
+        </div></td>
+       </tr>
+       <tr>
+        <td><b><i>Tanggal</i></b></td>
+<td><div align="left"><input type="text" name="date" value="Tanggal Lahir" size="3" onClick=value=""></div></td>
+       </tr>
+       <tr>
+        <td><b><i>Zodiak</i></b></td>
+        <td><div align="left"><input type="text" name="sign" size="16" value="" align="right"></div></td>
+       </tr>
+       <tr>
+        <td><b><i>Shio</i></b></td>
+<td><div align="left"><input type="text" name="csign" size="12"></div></td>
+       </tr>
+       <tr>
+        <td align="center" colspan="2">
+        <input type="button" value="Cek !" onClick="cek()">
+  <input type="reset" value="Ulang !">
+        </td>
+       </tr>
+    </table>
+   </form>
+         
+
+ <h3 align="center"><font color="blue" face="Snap ITC" size="6">Oleh khanif maulana</font></h3>
+    <br><font ><marquee direction="left" style="background:black">Algoritma Pemrograman || Tugas Uts || Oleh Khanif Maulana||1117101511||</marquee></font>
+
+
+</body>
+ </html>
