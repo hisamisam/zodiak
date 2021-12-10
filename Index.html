@@ -1,0 +1,122 @@
+<html>
+	<head>
+		<title>Uts Aplikasi Zodiak</title>
+	</head>
+		<body>
+			<form method="POST">
+				<table border="1">
+					<tr>
+						<th><center>Aplikasi Zodiak</center></th>
+					</tr>
+					<tr>
+						<td>Nama :<input type="text" name="nama" size="35"></td>
+					</tr>
+					<tr>
+					<td>Tanggal :<input type="text" name="tanggal" size="2">Bulan :
+						<select name="bln" id="bln">
+							<option>-Pilih-</option>
+							<option value="januari">1</option>
+							<option value="februari">2</option>
+							<option value="maret">3</option>
+							<option value="april">4</option>
+							<option value="mei">5</option>
+							<option value="juni">6</option>
+							<option value="juli">7</option>
+							<option value="agustus">8</option>
+							<option value="september">9</option>
+							<option value="oktober">10</option>
+							<option value="november">11</option>
+							<option value="desember">12</option>
+						</select>
+							<input type="submit" name="submit" id="submit" value="Cari">
+							<input type="reset" name="reset" id="reset" value="Batal" ></td>
+					</tr>
+				
+				
+							
+<?php
+error_reporting(E_ALL ^ E_NOTICE);
+$nama = $_POST["nama"];
+$tanggal= $_POST["tanggal"];
+$zodiak = $_POST["zodiak"];
+$blnzodiak=$_POST['bln'];
+
+/*switch($_POST['bln'])
+	{
+		case "1" :
+			$bulan = "Januari";
+			break;
+		case "2" :
+			$bulan = "Februari";
+			break;
+		case "3" :
+			$bulan = "Maret";
+			break;
+		case "4" :
+			$bulan = "April";
+			break;
+		case "5" :
+			$bulan = "Mei";
+			break;
+		case "6" :
+			$bulan = "Juni";
+			break;
+		case "7" :
+			$bulan = "Juli";
+			break;
+		case "8" :
+			$bulan = "Agustus";
+			break;
+		case "9" :
+			$bulan = "September";
+			break;
+		case "10" :
+			$bulan = "Oktober";
+			break;
+		case "11" :
+			$bulan = "Nopember";
+			break;
+		default :
+			$bulan = "Desember";
+			break;
+			
+	}*/
+				if (($tanggal>=20 && $blnzodiak=="maret")||($tanggal<=19 && $blnzodiak=="april")){
+					$zodiak= "Aries";
+				}else if(($tanggal>20 && $blnzodiak=="april" )||($tanggal<20 && $blnzodiak=="mei")){
+					$zodiak = "Taurus";
+				}else if(($tanggal>21 && $blnzodiak=="mei" )||($tanggal<20 && $blnzodiak=="juni")){
+					$zodiak = "Gemini";
+				}else if(($tanggal>21 && $blnzodiak=="juni" )||($tanggal<22 && $blnzodiak=="juli")){
+					$zodiak = "Cancer";
+				}else if(($tanggal>23 && $blnzodiak=="juli")||($tanggal<23 && $blnzodiak=="agustus")){
+					$zodiak = "Leo";
+				}else if(($tanggal>23 && $blnzodiak=="agustus")||($tanggal<22 && $blnzodiak=="september")){
+					$zodiak = "Virgo";
+				}else if(($tanggal>23 && $blnzodiak=="september")||($tanggal<22 && $blnzodiak=="oktober")){
+					$zodiak = "Libra";
+				}else if(($tanggal>23 && $blnzodiak=="oktober")||($tanggal<21 && $blnzodiak=="november")){
+					$zodiak = "Scorpio";
+				}else if(($tanggal>22 && $blnzodiak=="november")||($tanggal<21 && $blnzodiak=="desember")){
+					$zodiak = "Sagitarius";
+				}else if(($tanggal>22 && $blnzodiak=="desember")||($tanggal<19 && $blnzodiak=="januari")){
+					$zodiak = "Capricorns";
+				}else if(($tanggal>20 && $blnzodiak=="januari")||($tanggal<18 && $blnzodiak=="februari")){
+					$zodiak = "Aquarius";
+				}else if(($tanggal>19 && $blnzodiak=="februari")||($tanggal<19 && $blnzodiak=="maret")){
+					$zodiak = "Pisces";
+			
+	}
+?>
+
+					<tr>
+						<?php echo "<td>Nama Anda : $nama</td>";?>
+					</tr>
+					<tr>
+						<?php echo "<td>Tanggal Anda : $tanggal $blnzodiak</td>";?>
+					</tr>
+						<?php echo "<td>Zodiak Anda : $zodiak</td>";?>
+				</table>
+			</form>
+		</body>
+</html>
